@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+
+  web:
+    image: docker-web
+    container_name: web
+
+    ports:
+      - "5000:5000"
+
+    volumes:
+      - .:/app
+
+    networks:
+      - devops_network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+
+    ports:
+      - "80:80"
+
+    networks:
+      - devops_network
+
+networks:
+  devops_network:
+    driver: bridge

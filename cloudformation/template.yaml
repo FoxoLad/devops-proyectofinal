@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: '2010-09-09'
+
+Description: DevOps Final Project Infrastructure
+
+Resources:
+
+  DevOpsInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-0c02fb55956c7d316
+      IamInstanceProfile: LabInstanceProfile
+
+      Tags:
+        - Key: Name
+          Value: devops-ec2
+
+  DevOpsBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "devops-bucket-${AWS::AccountId}"
+
+      VersioningConfiguration:
+        Status: Enabled
+
+Outputs:
+
+  InstanceId:
+    Description: EC2 Instance ID
+    Value: !Ref DevOpsInstance
+
+  BucketName:
+    Description: S3 Bucket Name
+    Value: !Ref DevOpsBucket

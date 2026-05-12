@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# AWS
+.aws/
+
+# Logs
+*.log
+
+# Docker
+*.pid
+*.sock
+
