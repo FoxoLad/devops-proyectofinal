@@ -60,6 +60,6 @@ jobs:
         run: |
           aws ssm send-command \
           --document-name "AWS-RunShellScript" \
-          --targets "Key=instanceIds,Values=i-0114d31653d7e0504" \
+          --targets "Key=instanceIds,Values=i-0ac1da3155c2d525b" \
           --parameters commands="echo Deployment executed successfully" \
           --region us-east-1
